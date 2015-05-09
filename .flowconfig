@@ -1,0 +1,10 @@
+[ignore]
+./dist/.*
+
+[include]
+./src/firegrid.js
+
+[libs]
+./node_modules
+
+[options]
