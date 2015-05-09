@@ -1,4 +1,5 @@
 const
+  anybar = require('anybar'),
   autoprefixer = require('gulp-autoprefixer'),
   babelify = require('babelify'),
   browserify = require('browserify'),
@@ -29,6 +30,7 @@ gulp.task('scripts', function () {
     .pipe(buffer())
     .pipe(gulp.dest(DIST_DIR))
     .pipe(successSound())
+    .pipe(successAnybar())
 
 })
 
@@ -63,6 +65,22 @@ gulp.task('watch', function () {
 
 })
 
+function successAnybar () {
+  return tap(function(){
+    anybar('green')
+    setTimeout(function(){
+      anybar('white')
+    }, 3000)
+  })
+}
+
+function errorAnybar () {
+  anybar('red')
+  setTimeout(function(){
+    anybar('white')
+  }, 3000)
+}
+
 function successSound () {
   return tap(function(){ sfx.play('glass', 30) })
 }
@@ -82,6 +100,7 @@ function error (err, prefix) {
   })
   util.log(util.colors.red.bold(prefix || 'Error'), err.message)
   errorSound()
+  errorAnybar()
 }
 
 function browserifyError (err) {

@@ -48,3 +48,11 @@ the world's fastest browser-based grid.
 
 - 100: 28.490482456394954ms 
 - 1000: 232.17146666914533ms
+
+## install
+
+```sh
+brew cask install anybar
+npm i
+```
+```
