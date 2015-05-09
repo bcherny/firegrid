@@ -5,6 +5,9 @@ export default class Firegrid {
     this.container = container
     this.rowCount = 0
 
+    this.cellHeight = 52
+    this.cellWidth = 122
+
   }
 
   makeCell (
@@ -17,6 +20,10 @@ export default class Firegrid {
     cell.classList.add('cell')
     cell.setAttribute('data-column', columnId)
     cell.setAttribute('data-row', rowId)
+    cell.style.left = `${ columnId*this.cellWidth }px`
+    cell.style.top = `${ rowId*this.cellHeight }px`
+    cell.style.height = `${ this.cellHeight }px`
+    cell.style.width = `${ this.cellWidth }px`
     cell.innerHTML = content
 
     return cell
@@ -30,14 +37,6 @@ export default class Firegrid {
     row
       .map((_, n) => this.makeCell(rowId, n, _))
       .forEach(this.container.appendChild.bind(this.container))
-
-    this.layout()
-
-  }
-
-  layout () {
-
-    
 
   }
 
