@@ -19,3 +19,7 @@ the world's fastest browser-based grid.
   - n pinned columns
   - n subheaders
   - n groupings
+
+## developing
+
+- **watch** `npm run watch`
