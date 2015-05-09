@@ -3,10 +3,11 @@ export default class Firegrid {
   constructor (container: element) {
 
     this.container = container
+    this.columnCount = 0
     this.rowCount = 0
 
-    this.cellHeight = 52
-    this.cellWidth = 122
+    this.cellHeight = 30
+    this.cellWidth = 100
 
   }
 
@@ -33,10 +34,14 @@ export default class Firegrid {
   appendRow (row: array) {
 
     const rowId = this.rowCount++
+    this.columnCount = row.length
 
     row
       .map((_, n) => this.makeCell(rowId, n, _))
       .forEach(this.container.appendChild.bind(this.container))
+
+    this.container.style.height = `${ this.rowCount*this.cellHeight }px`
+    this.container.style.width = `${ this.columnCount*this.cellWidth }px`
 
   }
 

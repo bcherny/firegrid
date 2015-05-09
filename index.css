@@ -11,11 +11,30 @@ body {
 
 #grid {
   background: #fff;
-  margin: 10px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,.05);
+  margin: 20px;
+  position: relative;
 }
 
 .cell {
-  border: 1px solid #eee;
-  padding: 10px;
+  border: solid #eee;
+  border-width: 1px 0 0 1px;
   position: absolute;
+}
+
+.circle {
+  background: #eee;
+  border-radius: 50%;
+  color: #777;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin: auto;
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  text-align: center;
+  width: 20px;
 }
